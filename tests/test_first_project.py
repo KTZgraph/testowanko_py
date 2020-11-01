@@ -15,11 +15,11 @@ class EasyTestCase(unittest.TestCase):
         # True jest traktowane jako liczba 1
         self.assertEqual(avg(1, 1, 1, 1, 1, True), 1)
 
+
 class MediumTestCase(unittest.TestCase):
     """
     MEdium test - zawsze testowanie dla złych dancyh
     """
-
     def test_medium_input(self):
         with self.assertRaises(TypeError):
             self.assertEqual(avg(1, 2, 3, 4, "Mohammad"), 2)
