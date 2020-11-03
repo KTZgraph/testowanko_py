@@ -90,7 +90,7 @@ class TestCalculate(unittest.TestCase):
             Year number: 2032, Apt number owned 24.0 Passive Income $166570
             You can reach a passive income of $150000, but it will take: 14 years
         """
-        self.assertEqual(self._calculator_obj_one.get_years_needed(), 14)
+        self.assertEqual(self._calculator_obj_two.get_years_needed(), 14)
 
     def test_calculate_easy_third(self):
         """Year number: 2019, Apt number owned 1.0 Passive Income $16666
@@ -108,7 +108,7 @@ class TestCalculate(unittest.TestCase):
             Year number: 2031, Apt number owned 23.0 Passive Income $216578
             You can reach a passive income of $150000, but it will take: 13 years
         """
-        self.assertEqual(self._calculator_obj_one.get_years_needed(), 13)
+        self.assertEqual(self._calculator_obj_three.get_years_needed(), 13)
 
     def test_calculate_medium_first(self):
         pass
@@ -136,13 +136,13 @@ class TestGetYearsNeeded(unittest.TestCase):
         self._calculator_obj_three = Calculator(150000, 90000, 2019, 80000, 6666)
 
     def test_years_needed_easy_first(self):
-        pass
+        self.assertEqual(self._calculator_obj_one.get_apartments_needed(), 23)
 
     def test_years_needed_easy_second(self):
-        pass
+        self.assertEqual(self._calculator_obj_two.get_apartments_needed(), 24)
 
     def test_years_needed_easy_third(self):
-        pass
+        self.assertEqual(self._calculator_obj_three.get_apartments_needed(), 23)
 
     def test_years_needed_medium_first(self):
         pass
