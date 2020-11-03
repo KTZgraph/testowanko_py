@@ -1,7 +1,145 @@
 import unittest
 from challenge_two import Car, CarError
 
+# Organizaje testów w klasach, tak żeby nazwy sugerowały które metody są tak naprawdę testowane
 
+class StartCar(unittest.TestCase):
+    """
+    Nazwa sugeruje że testujemy metodę start_car i jak piszemy tylko testy dla programisów,
+    to developer wie, czego ak naprawdę dotyczą testy
+    """
+    def setUp(self):
+        # Todo: create an object named car from the Car class
+        # Todo: use the object car to start the car.
+        self.car = Car()
+        self.car.start_car()
+
+    def test_easy_input(self):
+        # Todo: use the object car to add speed 4 times.
+        # Todo: make sure that the current speed is 20.
+        self.car.add_speed()
+        self.car.add_speed()
+        self.car.add_speed()
+        self.car.add_speed()
+        self.assertEqual(self.car.current_speed(), 20)
+
+    def test_medium_input_two(self):
+        # Todo: use the object car to remove speed 4 times.
+        # Todo: raise an exception if the user tried to turn off the car in a speed greater than 0.
+        self.car.add_speed()
+        self.car.add_speed()
+        self.car.add_speed()
+        self.car.add_speed()
+
+        with self.assertRaises(CarError):
+            self.car.turn_off_car()
+
+    def test_hard_input(self):
+        # Todo: use the object car to add speed 2 times.
+        # Todo: use the object car to remove speed 4 times.
+        # Todo: make sure that the current speed is 0.
+        self.car.add_speed()
+        self.car.add_speed()
+        self.car.remove_speed()
+        self.car.remove_speed()
+        self.car.remove_speed()
+        self.car.remove_speed()
+
+        self.assertEqual(self.car.current_speed(), 0)
+
+
+class TurnOffCar(unittest.TestCase):
+    """
+    Nazwa sugeruje że testujemy metodę turn_off_car i jak piszemy tylko testy dla programisów,
+    to developer wie, czego ak naprawdę dotyczą testy
+    """
+    def setUp(self):
+        # Todo: create an object named car from the Car class
+        # Todo: use the object car to start the car.
+        self.car = Car()
+        self.car.start_car()
+
+    def test_easy_input(self):
+        # Todo: use the object car to add speed 4 times.
+        # Todo: make sure that the current speed is 20.
+        self.car.add_speed()
+        self.car.add_speed()
+        self.car.add_speed()
+        self.car.add_speed()
+        self.assertEqual(self.car.current_speed(), 20)
+
+    def test_medium_input_two(self):
+        # Todo: use the object car to remove speed 4 times.
+        # Todo: raise an exception if the user tried to turn off the car in a speed greater than 0.
+        self.car.add_speed()
+        self.car.add_speed()
+        self.car.add_speed()
+        self.car.add_speed()
+
+        with self.assertRaises(CarError):
+            self.car.turn_off_car()
+
+    def test_hard_input(self):
+        # Todo: use the object car to add speed 2 times.
+        # Todo: use the object car to remove speed 4 times.
+        # Todo: make sure that the current speed is 0.
+        self.car.add_speed()
+        self.car.add_speed()
+        self.car.remove_speed()
+        self.car.remove_speed()
+        self.car.remove_speed()
+        self.car.remove_speed()
+
+        self.assertEqual(self.car.current_speed(), 0)
+
+
+class AddSpeed(unittest.TestCase):
+    """
+    Nazwa sugeruje że testujemy metodę add_speed i jak piszemy tylko testy dla programisów,
+    to developer wie, czego ak naprawdę dotyczą testy
+    """
+
+    def setUp(self):
+        # Todo: create an object named car from the Car class
+        # Todo: use the object car to start the car.
+        self.car = Car()
+        self.car.start_car()
+
+    def test_easy_input(self):
+        # Todo: use the object car to add speed 4 times.
+        # Todo: make sure that the current speed is 20.
+        self.car.add_speed()
+        self.car.add_speed()
+        self.car.add_speed()
+        self.car.add_speed()
+        self.assertEqual(self.car.current_speed(), 20)
+
+    def test_medium_input_two(self):
+        # Todo: use the object car to remove speed 4 times.
+        # Todo: raise an exception if the user tried to turn off the car in a speed greater than 0.
+        self.car.add_speed()
+        self.car.add_speed()
+        self.car.add_speed()
+        self.car.add_speed()
+
+        with self.assertRaises(CarError):
+            self.car.turn_off_car()
+
+    def test_hard_input(self):
+        # Todo: use the object car to add speed 2 times.
+        # Todo: use the object car to remove speed 4 times.
+        # Todo: make sure that the current speed is 0.
+        self.car.add_speed()
+        self.car.add_speed()
+        self.car.remove_speed()
+        self.car.remove_speed()
+        self.car.remove_speed()
+        self.car.remove_speed()
+
+        self.assertEqual(self.car.current_speed(), 0)
+
+
+"""
 class EasyTestCase(unittest.TestCase):
 
     def setUp(self):
@@ -114,6 +252,8 @@ class HardTestCase(unittest.TestCase):
         self.car.turn_off_car()
         self.car = None
 
+"""
 
 if __name__ == '__main__':
     unittest.main()
+
