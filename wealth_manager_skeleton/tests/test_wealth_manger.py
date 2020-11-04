@@ -145,13 +145,13 @@ class TestGetYearsNeeded(unittest.TestCase):
         self._calculator_obj_three = Calculator(150000, 90000, 2019, 80000, 6666)
 
     def test_years_needed_easy_first(self):
-        self.assertEqual(self._calculator_obj_one.get_years_needed(), 15)
+        self.assertEqual(self._calculator_obj_one.get_years_needed(), 14)
 
     def test_years_needed_easy_second(self):
-        self.assertEqual(self._calculator_obj_two.get_years_needed(), 14)
+        self.assertEqual(self._calculator_obj_two.get_years_needed(), 13)
 
     def test_years_needed_easy_third(self):
-        self.assertEqual(self._calculator_obj_three.get_years_needed(), 13)
+        self.assertEqual(self._calculator_obj_three.get_years_needed(), 12)
 
     def test_years_needed_medium_first(self):
         pass

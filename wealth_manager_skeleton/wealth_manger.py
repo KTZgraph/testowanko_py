@@ -11,6 +11,7 @@ class Calculator:
             self._passive_income_desired_yearly = passive_income_desired_yearly #instance variable
             self._yearly_savings = yearly_savings
             self._starting_year = starting_year
+            self._years_needed = starting_year
             self._price_of_one_apartment = price_of_one_apartment
             self._price_od_renting_one_apartment = price_od_renting_one_apartment
             self._answer = dict() #odpowiedx w postaci słownika
@@ -48,4 +49,14 @@ class Calculator:
         return self._answer
 
     def get_years_needed(self):
-        pass
+        return (self._starting_year - 1)- self._years_needed
+
+    def get_apartments_needed(self):
+        key = max(self._answer, key=int) #2033 największy klucz ze słownika
+        value = self._answer[key]
+        number_of_apts = value[0]
+        return number_of_apts # -> 23.0
+
+    def get_net_worth(self):
+        # how many apartmenst you have * how much apartment cost np. 5 * 8000
+        return self.get_apartments_needed() * self._price_of_one_apartment
