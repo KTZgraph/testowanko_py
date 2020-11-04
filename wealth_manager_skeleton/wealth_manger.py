@@ -60,3 +60,14 @@ class Calculator:
     def get_net_worth(self):
         # how many apartmenst you have * how much apartment cost np. 5 * 8000
         return self.get_apartments_needed() * self._price_of_one_apartment
+
+    def print_results(self):
+        for k, v in self._answer.items():
+            print("Year number: {0}, Apt number owned: {1} Passive Income: ${2}".format(k, v[0], round(v[1])))
+        print("You can reach a passive income of ${0}, but it will take: {1} years".format(
+            self._passive_income_desired_yearly, self.get_years_needed()))
+
+
+calculator_obj_one = Calculator(150000, 70000, 2019, 80000, 6666)
+calculator_obj_one.print_results()
+print(calculator_obj_one.get_net_worth())

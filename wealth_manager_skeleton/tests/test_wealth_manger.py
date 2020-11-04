@@ -1,7 +1,11 @@
 import unittest
 from wealth_manager_skeleton.wealth_manger import Calculator
 
+
 class TestCalculate(unittest.TestCase):
+    """
+    Testowanie tylko konstruktora klasy
+    """
 
     def setUp(self):
         self._calculator_obj_one = Calculator(150000, 70000, 2019, 80000, 6666)
