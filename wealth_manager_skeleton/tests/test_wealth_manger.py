@@ -72,7 +72,7 @@ class TestCalculate(unittest.TestCase):
             You can reach a passive income of $150000, but it will take: 15 years
         """
         for k in self._calculator_obj_one.get_results().keys():
-            self.assertEqual(self._calculator_obj_one.get_results().get(k), self._calculator_data_one(k))
+            self.assertEqual(self._calculator_obj_one.get_results().get(k), self._calculator_data_one.get(k))
 
     def test_calculate_easy_second(self):
         """Year number: 2019, Apt number owned 1.0 Passive Income $6666
@@ -92,7 +92,7 @@ class TestCalculate(unittest.TestCase):
             You can reach a passive income of $150000, but it will take: 14 years
         """
         for k in self._calculator_obj_two.get_results().keys():
-            self.assertEqual(self._calculator_obj_two.get_results().get(k), self._calculator_data_two(k))
+            self.assertEqual(self._calculator_obj_two.get_results().get(k), self._calculator_data_two.get(k))
 
     def test_calculate_easy_third(self):
         """Year number: 2019, Apt number owned 1.0 Passive Income $16666
@@ -111,7 +111,7 @@ class TestCalculate(unittest.TestCase):
             You can reach a passive income of $150000, but it will take: 13 years
         """
         for k in self._calculator_obj_three.get_results().keys():
-            self.assertEqual(self._calculator_obj_three.get_results().get(k), self._calculator_data_three(k))
+            self.assertEqual(self._calculator_obj_three.get_results().get(k), self._calculator_data_three.get(k))
 
     def test_calculate_medium_first(self):
         with self.assertRaises(TypeError):

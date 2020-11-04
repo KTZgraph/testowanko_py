@@ -7,13 +7,16 @@ import math
 class Calculator:
     def __init__(self, passive_income_desired_yearly, yearly_savings, starting_year, price_of_one_apartment,
                  price_od_renting_one_apartment):
-        self._passive_income_desired_yearly = passive_income_desired_yearly #instance variable
-        self._yearly_savings = yearly_savings
-        self._starting_year = starting_year
-        self._price_of_one_apartment = price_of_one_apartment
-        self._price_od_renting_one_apartment = price_od_renting_one_apartment
-        self._answer = dict() #odpowiedx w postaci słownika
-        self._calculate()
+        if isinstance(starting_year, int):
+            self._passive_income_desired_yearly = passive_income_desired_yearly #instance variable
+            self._yearly_savings = yearly_savings
+            self._starting_year = starting_year
+            self._price_of_one_apartment = price_of_one_apartment
+            self._price_od_renting_one_apartment = price_od_renting_one_apartment
+            self._answer = dict() #odpowiedx w postaci słownika
+            self._calculate()
+        else:
+            raise TypeError("Year must be an intiger")
 
     def _calculate(self):
         apt_number_owned = 0 #apt - apartment local variable
@@ -41,3 +44,8 @@ class Calculator:
             self._starting_year += 1
 
 
+    def get_results(self):
+        return self._answer
+
+    def get_years_needed(self):
+        pass
