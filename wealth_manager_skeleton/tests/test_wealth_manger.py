@@ -1,5 +1,5 @@
 import unittest
-
+from wealth_manager_skeleton.wealth_manger import Calculator
 
 class TestCalculate(unittest.TestCase):
 
@@ -71,7 +71,8 @@ class TestCalculate(unittest.TestCase):
             Year number: 2033, Apt number owned 23.0 Passive Income $169904
             You can reach a passive income of $150000, but it will take: 15 years
         """
-        self.assertEqual(self._calculator_obj_one.get_years_needed(), 15)
+        for k in self._calculator_obj_one.get_results().keys():
+            self.assertEqual(self._calculator_obj_one.get_results().get(k), self._calculator_data_one(k))
 
     def test_calculate_easy_second(self):
         """Year number: 2019, Apt number owned 1.0 Passive Income $6666
@@ -90,7 +91,8 @@ class TestCalculate(unittest.TestCase):
             Year number: 2032, Apt number owned 24.0 Passive Income $166570
             You can reach a passive income of $150000, but it will take: 14 years
         """
-        self.assertEqual(self._calculator_obj_two.get_years_needed(), 14)
+        for k in self._calculator_obj_two.get_results().keys():
+            self.assertEqual(self._calculator_obj_two.get_results().get(k), self._calculator_data_two(k))
 
     def test_calculate_easy_third(self):
         """Year number: 2019, Apt number owned 1.0 Passive Income $16666
@@ -108,25 +110,32 @@ class TestCalculate(unittest.TestCase):
             Year number: 2031, Apt number owned 23.0 Passive Income $216578
             You can reach a passive income of $150000, but it will take: 13 years
         """
-        self.assertEqual(self._calculator_obj_three.get_years_needed(), 13)
+        for k in self._calculator_obj_three.get_results().keys():
+            self.assertEqual(self._calculator_obj_three.get_results().get(k), self._calculator_data_three(k))
 
     def test_calculate_medium_first(self):
-        pass
+        with self.assertRaises(TypeError):
+            Calculator("111111","111111", "111111", "111111", "111111")
 
     def test_calculate_medium_second(self):
-        pass
+        with self.assertRaises(TypeError):
+            Calculator(150000, 70000, 2019.12345, 80000, 6666) #rok nie moze być float
 
     def test_calculate_medium_third(self):
-        pass
+        with self.assertRaises(TypeError):
+            Calculator(150000, 70000, 2019.12345, 80000, True)  # True to nie liczba
 
     def test_calculate_hard_first(self):
-        pass
+        with self.assertRaises(TypeError):
+            Calculator(None, None, None, None, None)  # None nie może być wartością
 
     def test_calculate_hard_second(self):
-        pass
+        with self.assertRaises(TypeError):
+            Calculator(111111, None, None, None, None)
 
     def test_calculate_hard_third(self):
-        pass
+        with self.assertRaises(TypeError):
+            Calculator(111111, 23, 2323, 4334, Exception) #dane ktore sie typem nie zgadzaja
 
 
 class TestGetYearsNeeded(unittest.TestCase):
@@ -136,13 +145,13 @@ class TestGetYearsNeeded(unittest.TestCase):
         self._calculator_obj_three = Calculator(150000, 90000, 2019, 80000, 6666)
 
     def test_years_needed_easy_first(self):
-        self.assertEqual(self._calculator_obj_one.get_apartments_needed(), 23)
+        self.assertEqual(self._calculator_obj_one.get_years_needed(), 15)
 
     def test_years_needed_easy_second(self):
-        self.assertEqual(self._calculator_obj_two.get_apartments_needed(), 24)
+        self.assertEqual(self._calculator_obj_two.get_years_needed(), 14)
 
     def test_years_needed_easy_third(self):
-        self.assertEqual(self._calculator_obj_three.get_apartments_needed(), 23)
+        self.assertEqual(self._calculator_obj_three.get_years_needed(), 13)
 
     def test_years_needed_medium_first(self):
         pass
@@ -170,13 +179,13 @@ class TestGetApartmentsNeeded(unittest.TestCase):
         self._calculator_obj_three = Calculator(150000, 90000, 2019, 80000, 6666)
 
     def test_apartments_needed_easy_first(self):
-        pass
+        self.assertEqual(self._calculator_obj_one.get_apartments_needed(), 23)
 
     def test_apartments_needed_easy_second(self):
-        pass
+        self.assertEqual(self._calculator_obj_two.get_apartments_needed(), 24)
 
     def test_apartments_needed_easy_third(self):
-        pass
+        self.assertEqual(self._calculator_obj_three.get_apartments_needed(), 23)
 
     def test_apartments_needed_medium_first(self):
         pass
@@ -204,13 +213,13 @@ class TestGetNetWorth(unittest.TestCase):
         self._calculator_obj_three = Calculator(150000, 90000, 2019, 80000, 6666)
 
     def test_net_worth_easy_first(self):
-        pass
+        self.assertEqual(self._calculator_obj_one.get_net_worth(), 1840000)
 
     def test_net_worth_easy_second(self):
-        pass
+        self.assertEqual(self._calculator_obj_two.get_net_worth(), 1920000)
 
     def test_net_worth_easy_third(self):
-        pass
+        self.assertEqual(self._calculator_obj_three.get_net_worth(), 1840000)
 
     def test_net_worth_medium_first(self):
         pass
