@@ -1,5 +1,4 @@
 import unittest
-import sys
 from wealth_manager_skeleton.wealth_manager import Calculator
 
 
@@ -58,7 +57,6 @@ class TestCalculate(unittest.TestCase):
                                        2030: [20.0, 213260],
                                        2031: [23.0, 216578]}
 
-    @unittest.skip('just because') #skipowanie pojedynczego testu
     def test_calculate_easy_first(self):
         """Year number: 2019, Apt number owned 0 Passive Income $70000
             Year number: 2020, Apt number owned 1.0 Passive Income $66666
@@ -80,7 +78,6 @@ class TestCalculate(unittest.TestCase):
         for k in self._calculator_obj_one.get_results().keys():
             self.assertEqual(self._calculator_obj_one.get_results().get(k), self._calculator_data_one.get(k))
 
-    @unittest.skip('just because') #skipowanie pojedynczego testu
     def test_calculate_easy_second(self):
         """Year number: 2019, Apt number owned 1.0 Passive Income $6666
             Year number: 2020, Apt number owned 2.0 Passive Income $19998
@@ -101,7 +98,6 @@ class TestCalculate(unittest.TestCase):
         for k in self._calculator_obj_two.get_results().keys():
             self.assertEqual(self._calculator_obj_two.get_results().get(k), self._calculator_data_two.get(k))
 
-    @unittest.skip('just because') #skipowanie pojedynczego testu
     def test_calculate_easy_third(self):
         """Year number: 2019, Apt number owned 1.0 Passive Income $16666
             Year number: 2020, Apt number owned 2.0 Passive Income $39998
@@ -146,7 +142,6 @@ class TestCalculate(unittest.TestCase):
             Calculator(111111, 23, 2323, 4334, Exception) #dane ktore sie typem nie zgadzaja
 
 
-@unittest.skip('just because') #skip testy całej klasy
 class TestGetYearsNeeded(unittest.TestCase):
     def setUp(self):
         self._calculator_obj_one = Calculator(150000, 70000, 2019, 80000, 6666)
@@ -187,16 +182,12 @@ class TestGetApartmentsNeeded(unittest.TestCase):
         self._calculator_obj_two = Calculator(150000, 80000, 2019, 80000, 6666)
         self._calculator_obj_three = Calculator(150000, 90000, 2019, 80000, 6666)
 
-    @unittest.skipIf(int(sys.version[0]) > 2, "needs to be version 4") # skip z warunkiem dla wersji pythona
     def test_apartments_needed_easy_first(self):
         self.assertEqual(self._calculator_obj_one.get_apartments_needed(), 23)
 
-    # test BEDZIE sie uruchamiac TYLKO na windzie
-    @unittest.skipUnless(sys.platform.startswith("win"), "Requires Windows") #skip ze wzgledu na system operacyjny
     def test_apartments_needed_easy_second(self):
         self.assertEqual(self._calculator_obj_two.get_apartments_needed(), 24)
 
-    @unittest.expectedFailure #uzywac tylko gdy
     def test_apartments_needed_easy_third(self):
         self.assertEqual(self._calculator_obj_three.get_apartments_needed(), 23)
 

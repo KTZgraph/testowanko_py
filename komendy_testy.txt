@@ -1,0 +1,30 @@
+###### Uruchamianie Testów w linii komend ######
+
+1. How to Run All Tests Within Your Directory?
+- python3.6 -m unittest discover
+- python -m unittest discover
+
+UWAGA: w folderze z testami musi być plik __init__.py - mówi, że ten folder jest modueł pythona [package]
+
+
+2. How to Run All Tests In A Specific Module?
+# test pojedynczego pliku
+- python3.6 -m unittest tests.test_challenge # nie trzeba rozszerzenia pliku .py
+- python -m unittest tests.test_challenge
+Or
+- python3.6 -m unittest tests/test_challenge.py
+- python -m unittest tests/test_challenge.py
+
+
+3. How to Run a Specific Test Case Within a Module?
+# test pojedynczej klasy
+- python3.6 -m unittest tests.test_wealth_manager.TestCalculate
+# przykład uruchamiania testów w zagniezdzonym gdzie indziej folderze
+- python -m unittest wealth_manager_skeleton.tests.test_wealth_manager.TestCalculate
+
+
+4. How to Run a Specific Method Within a Test Case?
+# poejdyncza metoda w okreslonej klasi ei sciezce
+- python3.6 -m unittest tests.test_wealth_manager.TestCalculate.test_calculate_easy_first
+- python -m unittest wealth_manager_skeleton.tests.test_wealth_manager.TestCalculate.test_calculate_easy_first
+

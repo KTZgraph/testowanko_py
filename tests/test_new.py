@@ -1,5 +1,5 @@
 import unittest
-from wealth_manager_skeleton.wealth_manger import Calculator
+from wealth_manager_skeleton.wealth_manager import Calculator
 
 
 class TestCalculate(unittest.TestCase):
