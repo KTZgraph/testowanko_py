@@ -1,0 +1,22 @@
+################ Skipping Tests & Expected Failure ################
+
+metody/dekoratory działają zarówno dla metod jak i całych klas
+
+
+Use skip for any reason
+@unittest.skip('just because')
+
+Use skipif to check a library version.
+@unittest.skipIf(int(sys.version[0]) > 4, "needs to be version 4") # skip z warunkiem
+sys.version[0] zwraca stringa
+
+
+Use skipUnless to check the os system.
+Ex. @unittest.skipUnless(sys.platform.startswith("win"), "Requires Windows") #skip ze wzgledu na system operacyjny
+
+Use expectedFailure if the pass are going to pass for sure.
+@unittest.expectedFailure # jak jesteśmy pewni, że test się NIE powiódł
+
+# jeśli test się powiedzie, chcoia jest oznaczony powyższym dekoratorem, to dostaniem blad z pythona
+Failure
+Test should not succeed since it's marked with @unittest.expectedFailure
