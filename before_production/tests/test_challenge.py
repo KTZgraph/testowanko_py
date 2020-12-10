@@ -1,6 +1,14 @@
 import unittest
 from before_production.challenge import ListChanger
 
+"""
+Testowanie z bilbitoeką coverage  https://coverage.readthedocs.io/en/coverage-5.3/
+coverage run -m unittest discover
+coverage report -m
+
+coverage run -m pytest before_production
+"""
+
 
 class TestListChanger(unittest.TestCase):
 

@@ -6,6 +6,7 @@ class ListChanger:
         self._list = input_list
 
     def reverse_list(self):
+        self.__my_private_method() # do testow pkt 3 . debugowanie
         return self._list[::-1]
 
     def has_duplicates(self):
@@ -22,3 +23,6 @@ class ListChanger:
 
     def remove_first_and_last(self):
         return self._list[1:len(self._list) - 1]
+
+    def __my_private_method(self):
+        return True
