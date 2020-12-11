@@ -1,12 +1,3 @@
-"""
-author: pawlaczyk.
-date: Dec, 11, 2020.
-To use this class you neded to do: 1- bla bla. 2- bla bla. 3- bla bla.
-Extension module = ListChanger().
-
-The reason why we have this is class is because: 1- bla bla. 2- bla bla.
-"""
-
 import heapq
 
 
